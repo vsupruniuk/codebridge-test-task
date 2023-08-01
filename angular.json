@@ -5,7 +5,13 @@
   "projects": {
     "codebridge-test-task": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true,
+          "skipImport": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
