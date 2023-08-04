@@ -26,6 +26,7 @@ export class ArticlesComponent implements OnInit, OnDestroy {
 			this.filteredArticles = this.articles;
 		} else {
 			const keywordsArr = keywords.split(' ').filter(keyword => keyword.trim() !== '');
+
 			this.filteredArticles = this.articles.filter(article =>
 				keywordsArr.some(
 					keyword => article.title.includes(keyword) || article.summary.includes(keyword),
@@ -36,14 +37,16 @@ export class ArticlesComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.store.dispatch(loadArticles());
+		this.loading$ = this.store.pipe(select('articles', 'loading'));
+		this.error$ = this.store.pipe(select('articles', 'error'));
+
 		this.articlesSubscription$ = this.store
 			.pipe(select('articles', 'articles'))
 			.subscribe(articlesResponse => {
 				this.articles = articlesResponse?.results || [];
 				this.filteredArticles = articlesResponse?.results || [];
 			});
-		this.loading$ = this.store.pipe(select('articles', 'loading'));
-		this.error$ = this.store.pipe(select('articles', 'error'));
+
 		this.keywordsSubscription$ = this.store
 			.pipe(select('keywords', 'keywords'))
 			.subscribe(keywords => {

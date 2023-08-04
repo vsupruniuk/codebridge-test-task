@@ -29,4 +29,6 @@ export class ArticlePageComponent implements OnInit {
 		this.loading$ = this.store.pipe(select('articles', 'loading'));
 		this.error$ = this.store.pipe(select('articles', 'error'));
 	}
+
+	protected readonly Boolean = Boolean;
 }

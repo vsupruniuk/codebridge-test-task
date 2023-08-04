@@ -1,7 +1,7 @@
 <mat-card class="article">
 	<img mat-card-image [src]="article.image_url" alt="article-photo" class="article-img" />
 
-	<div class="article-body">
+	<mat-card-content class="article-body">
 		<div>
 			<div class="article-date">
 				<mat-icon matPrefix fontIcon="calendar_today" />
@@ -27,5 +27,5 @@
 			<a [routerLink]="'article/' + article.id">Read more</a>
 			<mat-icon matSuffix fontIcon="arrow_forward" />
 		</div>
-	</div>
+	</mat-card-content>
 </mat-card>

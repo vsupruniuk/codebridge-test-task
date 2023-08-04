@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ArticleSummaryComponent } from '../components/article-summary/article-summary.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
 	declarations: [ArticlePageComponent, ArticleBackgroundComponent, ArticleSummaryComponent],
@@ -16,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 		MatCardModule,
 		MatFormFieldModule,
 		MatIconModule,
+		MatProgressSpinnerModule,
 	],
 	bootstrap: [ArticlePageComponent],
 })

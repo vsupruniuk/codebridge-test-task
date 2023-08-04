@@ -1,3 +1,5 @@
 <h3>Result: {{ filteredArticles.length }}</h3>
+
 <mat-divider class="divider" />
+
 <app-articles-list [articles]="filteredArticles" [loading$]="loading$" [error$]="error$" />

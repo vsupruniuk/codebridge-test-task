@@ -3,7 +3,12 @@
 </h2>
 
 <ng-template #gridList>
-	<mat-grid-list cols="3" gutterSize="45" [rowHeight]="600">
+	<mat-grid-list
+		[cols]="gridColumns"
+		gutterSize="45"
+		[rowHeight]="600"
+		(window:resize)="onResize($event)"
+	>
 		<mat-spinner *ngIf="loading$ | async; else articlesList" class="loader" />
 
 		<ng-template #articlesList>
