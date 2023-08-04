@@ -1,0 +1,18 @@
+<h2 *ngIf="Boolean(error$ | async); else articleTemplate">
+	Unable to load article. Please try again later
+</h2>
+
+<ng-template #articleTemplate>
+	<mat-spinner *ngIf="loading$ | async; else article" />
+
+	<ng-template #article>
+		<app-article-background [article$]="article$" />
+
+		<app-article-summary [article$]="article$" />
+
+		<div class="summary-more">
+			<mat-icon matSuffix fontIcon="arrow_back" />
+			<a [routerLink]="''">Back to homepage</a>
+		</div>
+	</ng-template>
+</ng-template>

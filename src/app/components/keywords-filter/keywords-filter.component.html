@@ -1,0 +1,13 @@
+<h3 class="semi-bold">Filter by keywords</h3>
+
+<mat-form-field class="keywords-filter">
+	<input
+		matInput
+		placeholder="Ex. Programming"
+		type="text"
+		[(ngModel)]="inputValue"
+		(input)="onInputChange()"
+	/>
+
+	<mat-icon matPrefix fontIcon="search" />
+</mat-form-field>
