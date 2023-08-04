@@ -29,7 +29,9 @@ export class ArticlesComponent implements OnInit, OnDestroy {
 
 			this.filteredArticles = this.articles.filter(article =>
 				keywordsArr.some(
-					keyword => article.title.includes(keyword) || article.summary.includes(keyword),
+					keyword =>
+						article.title.toLowerCase().includes(keyword.toLowerCase()) ||
+						article.summary.toLowerCase().includes(keyword.toLowerCase()),
 				),
 			);
 		}
