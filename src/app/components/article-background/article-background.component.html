@@ -1,0 +1,6 @@
+<img
+	mat-card-image
+	[src]="(article$ | async)?.image_url || ''"
+	alt="article-image"
+	class="article-img"
+/>

@@ -10,6 +10,10 @@
           "style": "scss",
           "skipTests": true,
           "skipImport": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true,
+          "skipImport": true
         }
       },
       "root": "",

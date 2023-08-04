@@ -1,0 +1,31 @@
+<mat-card class="article">
+	<img mat-card-image [src]="article.image_url" alt="article-photo" class="article-img" />
+
+	<div class="article-body">
+		<div>
+			<div class="article-date">
+				<mat-icon matPrefix fontIcon="calendar_today" />
+				<span>{{ article.published_at | date: 'longDate' }}</span>
+			</div>
+
+			<mat-card-title
+				class="article-title"
+				[innerHTML]="article.title | keywords: (keywords$ | async) || '' : 'title'"
+			></mat-card-title>
+
+			<p
+				class="article-summary"
+				[innerHTML]="
+					article.summary
+						| trimExtraDescription
+						| keywords: (keywords$ | async) || '' : 'description'
+				"
+			></p>
+		</div>
+
+		<div class="article-more">
+			<a [routerLink]="'article/' + article.id">Read more</a>
+			<mat-icon matSuffix fontIcon="arrow_forward" />
+		</div>
+	</div>
+</mat-card>

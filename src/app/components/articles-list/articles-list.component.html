@@ -1,0 +1,15 @@
+<h2 *ngIf="Boolean(error$ | async); else gridList">
+	Unable to load articles. Please try again later
+</h2>
+
+<ng-template #gridList>
+	<mat-grid-list cols="3" gutterSize="45" [rowHeight]="600">
+		<mat-spinner *ngIf="loading$ | async; else articlesList" class="loader" />
+
+		<ng-template #articlesList>
+			<mat-grid-tile *ngFor="let article of articles">
+				<app-article-card [article]="article" class="article-container" />
+			</mat-grid-tile>
+		</ng-template>
+	</mat-grid-list>
+</ng-template>
